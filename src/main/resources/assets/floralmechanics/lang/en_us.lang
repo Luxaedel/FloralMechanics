@@ -1,8 +1,10 @@
 //Items
+item.environmental_extractor_minor.name=Minor environmental extractor
 
 //Blocks
 tile.floral_generator.name=Floral Generator
 tile.floral_crafting_table.name=Floral Crafting Table
+tile.australea.name=Australea
 
 //Liquids
 

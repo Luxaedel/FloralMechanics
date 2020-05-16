@@ -9,6 +9,7 @@ public class ItemBase extends Item {
 		setTranslationKey(name);
 		setRegistryName(name);
 		setCreativeTab(FloralMechanics.FLORAL_MECHANICS_TAB);
+		this.maxStackSize = 1;
 		ModItems.ITEMS.add(this);
 	}
 }
