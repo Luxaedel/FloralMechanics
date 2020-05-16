@@ -1,0 +1,44 @@
+{
+	"type": "floralmechanics:shaped",
+	"result": {
+		"item": "minecraft:diamond",
+		"data": 0,
+		"count": 32
+	},
+	"pattern": [
+		"CCCCC",
+		"CCCCC",
+		"CCCCC",
+		"CCCCC",
+		"CCCCC"
+	],
+	"key": {
+		"C": {
+			"item": "minecraft:iron_ingot"
+		}
+	},
+	"floralPattern": [
+		"  R  ",
+		"  Y  ",
+		"RYCYR",
+		"  Y  ",
+		"  R  "
+	],
+	"floralKey": {
+		"R": {
+			"item": "minecraft:red_flower",
+			"data": 0,
+			"count": 1
+		},
+		"Y": {
+			"item": "minecraft:yellow_flower",
+			"data": 0,
+			"count": 1
+		},
+		"C": {
+			"item": "floralmechanics:floral_crafting_table",
+			"data": 0,
+			"count": 1
+		}
+	}
+}

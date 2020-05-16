@@ -1,0 +1,13 @@
+{
+    "parent": "block/orientable",
+    "textures":
+    {
+        "particle": "floralmechanics:blocks/floral_crafting_table_front",
+        "up": "floralmechanics:blocks/floral_crafting_table_top",
+        "down": "floralmechanics:blocks/floral_crafting_table_top",
+        "north": "floralmechanics:blocks/floral_crafting_table_front",
+        "east": "floralmechanics:blocks/floral_crafting_table_side",
+        "south": "floralmechanics:blocks/floral_crafting_table_side",
+        "west": "floralmechanics:blocks/floral_crafting_table_side"
+    }
+}

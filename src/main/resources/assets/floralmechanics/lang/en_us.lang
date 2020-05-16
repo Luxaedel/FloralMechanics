@@ -1,0 +1,12 @@
+//Items
+
+//Blocks
+tile.floral_generator.name=Floral Generator
+tile.floral_crafting_table.name=Floral Crafting Table
+
+//Liquids
+
+//Tabs
+itemGroup.floralmechanicstab=Floral Mechanics
+
+//Containers

@@ -1,0 +1,13 @@
+{
+    "variants":
+    {
+        "burning=false,facing=north": { "model": "floralmechanics:floral_generator" },
+        "burning=false,facing=east": { "model": "floralmechanics:floral_generator", "y": 90 },
+        "burning=false,facing=south": { "model": "floralmechanics:floral_generator", "y": 180 },
+        "burning=false,facing=west": { "model": "floralmechanics:floral_generator", "y": 270 },
+        "burning=true,facing=north": { "model": "floralmechanics:lit_floral_generator" },
+        "burning=true,facing=east": { "model": "floralmechanics:lit_floral_generator", "y": 90 },
+        "burning=true,facing=south": { "model": "floralmechanics:lit_floral_generator", "y": 180 },
+        "burning=true,facing=west": { "model": "floralmechanics:lit_floral_generator", "y": 270 }
+    }
+}

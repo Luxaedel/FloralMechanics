@@ -1,0 +1,9 @@
+{
+    "variants":
+    {
+        "facing=north": { "model": "floralmechanics:floral_crafting_table" },
+        "facing=east": { "model": "floralmechanics:floral_crafting_table", "y": 90 },
+        "facing=south": { "model": "floralmechanics:floral_crafting_table", "y": 180 },
+        "facing=west": { "model": "floralmechanics:floral_crafting_table", "y": 270 }
+    }
+}
