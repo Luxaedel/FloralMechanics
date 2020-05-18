@@ -26,5 +26,7 @@ public class ModelHandler {
 				new ModelResourceLocation(Item.getItemFromBlock(ModBlocks.FLORAL_CRAFTING_TABLE).getRegistryName(), "inventory"));
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ModBlocks.AUSTRALEA), 0, 
 				new ModelResourceLocation(Item.getItemFromBlock(ModBlocks.AUSTRALEA).getRegistryName(), "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ModBlocks.FLORAL_INFUSER), 0, 
+				new ModelResourceLocation(Item.getItemFromBlock(ModBlocks.FLORAL_INFUSER).getRegistryName(), "inventory"));
 	}
 }
