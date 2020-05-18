@@ -7,4 +7,8 @@ public class FloralGeneratorPattern extends Pattern {
 		super();
 		this.rfTick = rfPerTick;
 	}
+	
+	public void setRFTick(int rfTick) {
+		this.rfTick = rfTick;
+	}
 }

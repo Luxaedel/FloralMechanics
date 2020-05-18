@@ -1,0 +1,28 @@
+{
+	"type": "floralmechanics:shaped",
+	"rftick": 2000,
+	"floralPattern": [
+		"  R  ",
+		"  Y  ",
+		"RYGYR",
+		"  Y  ",
+		"  R  "
+	],
+	"floralKey": {
+		"R": {
+			"item": "minecraft:red_flower",
+			"data": 0,
+			"count": 1
+		},
+		"Y": {
+			"item": "minecraft:yellow_flower",
+			"data": 0,
+			"count": 1
+		},
+		"G": {
+			"item": "floralmechanics:floral_generator",
+			"data": 0,
+			"count": 1
+		}
+	}
+}

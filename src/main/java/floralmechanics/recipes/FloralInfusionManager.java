@@ -6,29 +6,21 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.Map.Entry;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 
-import com.google.common.collect.Maps;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 
-import floralmechanics.init.ModBlocks;
 import floralmechanics.util.Constants;
 import floralmechanics.util.helpers.PatternHelper;
 import floralmechanics.util.patterns.FloralGeneratorPattern;
-import net.minecraft.block.Block;
+import floralmechanics.util.patterns.FloralInfusionPattern;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.JsonUtils;
 import net.minecraft.util.NonNullList;
@@ -38,21 +30,21 @@ import net.minecraftforge.common.crafting.JsonContext;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
 
-public class FloralGeneratorManager {
-	private static FloralGeneratorManager instance;
+public class FloralInfusionManager {
+	private static FloralInfusionManager instance;
 	
 	private static Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
-	public static final List<FloralGeneratorPattern> FLORAL_GENERATOR_PATTERNS = new ArrayList<FloralGeneratorPattern>();
+	public static final List<FloralInfusionPattern> FLORAL_INFUSION_PATTERNS = new ArrayList<FloralInfusionPattern>();
 	
 	private final ModContainer mod;
 	private final JsonContext ctx;
 	
-	public static FloralGeneratorManager instance() {
-        if (instance == null) instance = new FloralGeneratorManager();
+	public static FloralInfusionManager instance() {
+        if (instance == null) instance = new FloralInfusionManager();
         return instance;
     }
 	
-	private FloralGeneratorManager() {
+	private FloralInfusionManager() {
 		this.mod = Loader.instance().getIndexedModList().get(Constants.MODID);
     	this.ctx = new JsonContext(Constants.MODID);
 	}
@@ -62,7 +54,7 @@ public class FloralGeneratorManager {
     }
     
     private boolean parseJsonRecipes() {
-    	return CraftingHelper.findFiles(mod, "assets/" + mod.getModId() + "/patterns/floralgeneratorpatterns", this::preprocess, this::process, true, true);
+    	return CraftingHelper.findFiles(mod, "assets/" + mod.getModId() + "/patterns/floralinfusionpatterns", this::preprocess, this::process, true, true);
     }
     
     private boolean preprocess(final Path root) {
@@ -104,22 +96,14 @@ public class FloralGeneratorManager {
     	String type = this.ctx.appendModId(JsonUtils.getString(json, "type"));
     	if (type.isEmpty()) throw new JsonSyntaxException( "Recipe type can not be an empty string" );
     	
-    	FloralGeneratorPattern pattern = this.fromJson(this.ctx, json);
+    	FloralInfusionPattern pattern = this.fromJson(this.ctx, json);
     	if (pattern == null) Constants.LOGGER.error("Factory parsed a null recipe!");
-    	else FLORAL_GENERATOR_PATTERNS.add(pattern);
+    	else FLORAL_INFUSION_PATTERNS.add(pattern);
     }
     
-    private FloralGeneratorPattern fromJson(JsonContext context, JsonObject json) {
-    	FloralGeneratorPattern floralPattern = new FloralGeneratorPattern(JsonUtils.getInt(json, "rftick"));
+    private FloralInfusionPattern fromJson(JsonContext context, JsonObject json) {
+    	FloralInfusionPattern floralPattern = new FloralInfusionPattern();
     	PatternHelper.setFloralPatternFromJson(context, json, floralPattern);
     	return floralPattern;
     }
-    
-    public int getRFTickFromPattern(NonNullList<ItemStack> blockList) {
-		for (FloralGeneratorPattern pattern : FLORAL_GENERATOR_PATTERNS) {
-			if(pattern.patternMatches(blockList)) return pattern.rfTick;
-		}
-		
-		return 0;
-	}
 }
