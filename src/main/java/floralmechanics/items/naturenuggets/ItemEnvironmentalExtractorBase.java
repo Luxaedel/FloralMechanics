@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import floralmechanics.items.ItemBase;
+import floralmechanics.util.helpers.PlayerHelper;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -68,10 +69,9 @@ public class ItemEnvironmentalExtractorBase extends ItemBase {
 		if (count <= 1 && entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer)entity;
 			World worldIn = player.world;
-			if (!worldIn.isRemote) {
+			if (!worldIn.isRemote && PlayerHelper.isPlayerReal(player)) {
 				Vec3d vec3d = player.getPositionVector().add(0,  player.eyeHeight, 0);
 				Vec3d vec3d1 = player.getLookVec();
-				//Vec3d vec3d2 = vec3d.scale(5);// vec3d1 * 5;
 				Vec3d vec3d2 = vec3d.add(vec3d1.x * 5, vec3d1.y * 5, vec3d1.z * 5);
 				RayTraceResult rayTrace = worldIn.rayTraceBlocks(vec3d, vec3d2, false, false, true);
 				if (rayTrace != null) {
